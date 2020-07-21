@@ -3,6 +3,7 @@ const knex = require("knex");
 const knexfile = require("../knexfile.js");
 
 // change to "production" and update knexfile.js to use postgres.
-const database = "development";
+const env = process.env.NODE_ENV || 'development';
+const configOptions = knexfile[env]
 
 module.exports = knex(knexfile[database]);
